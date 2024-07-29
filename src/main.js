@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "./api/axios"; // 导入封装后的 axios 实例
 import store from './store'; 
+import './assets/global.css'; // 引入全局样式
 
 const app = createApp(App);
 

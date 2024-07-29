@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" v-model="username" required 
-      @keyup.enter="focusPasswordInput"
-      ref="usernameInput"
-    />
-    <label for="password">Password:</label>
-    <input type="password" id="password" v-model="password" required @keyup.enter="login" 
-      ref="passwordInput"
-    />
-    <button @click="login">Login</button>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>登录</h1>
+      <input 
+        type="text" 
+        v-model="username" 
+        placeholder="Enter your username" 
+        @keyup.enter="focusPasswordInput" 
+        ref="usernameInput"
+        class="login-input"
+        required
+      />
+      <input 
+        type="password" 
+        v-model="password" 
+        placeholder="Enter your password" 
+        @keyup.enter="login" 
+        ref="passwordInput"
+        class="login-input"
+        required
+      />
+      <button @click="login" class="login-button">Login</button>
+    </div>
   </div>
 </template>
 
@@ -77,3 +89,54 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #f0f4f8, #e2e8f0);
+  /* box-sizing: border-box; */
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.login-box h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333333;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+</style>
